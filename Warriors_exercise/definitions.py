@@ -6,6 +6,12 @@ class Warrior:
         self.name = name
         self.hp = 100
 
+    def is_alive(self):
+        if self.hp > 0:
+            return True
+        else:
+            return False
+
 
 def rand_hit(unit1: Warrior, unit2: Warrior):
     """Takes 2 units as a parameters and they randomly hit each other"""
@@ -20,12 +26,12 @@ def rand_hit(unit1: Warrior, unit2: Warrior):
 
 def battle(unit1: Warrior, unit2: Warrior):
     """This func uses rand_hit until someone runs out of hp"""
-    while unit1.hp > 0 or unit2.hp > 0:
+    while True:
         rand_hit(unit1, unit2)
 
-        if unit1.hp == 0:
+        if unit1.is_alive() == False:
             print(unit2.name, "Win this fight!!!")
             break
-        if unit2.hp == 0:
+        if unit2.is_alive() == False:
             print(unit1.name, "Win this fight!!!")
             break
