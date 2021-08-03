@@ -11,6 +11,8 @@ class Warrior:
         return self.hp > 0
 
     def get_damaged(self, damage: int):
+        if damage < 0:
+            raise ValueError("Damage can't be negative!")
         self.hp -= damage
         print(self.name, "take", damage, "damage, he's now at", self.hp, "hp")
 
