@@ -2,7 +2,8 @@ import random
 
 
 class Warrior:
-    def __init__(self, name, hp=100):
+    def __init__(self, name, hp=100, damage=20):
+        self.damage = damage
         self.hp = hp
         self.name = name
 
@@ -14,25 +15,26 @@ class Warrior:
         print(self.name, "take", damage, "damage, he's now at", self.hp, "hp")
 
 
-def rand_hit(unit1: Warrior, unit2: Warrior):
-    """Takes 2 units as a parameters and they randomly hit each other"""
-    units = [unit1, unit2]
+def define_roles(units: list) -> tuple:
+    """
+    randomly selects attacker and target
+    """
     random.shuffle(units)
-    attack, defend = units[0], units[1]
-
-    print(attack.name, "hit", defend.name, )
-    defend.get_damaged(20)
+    lucky, target = units[0], units[1]
+    return lucky, target
 
 
 def battle(unit1: Warrior, unit2: Warrior):
-    """This func uses rand_hit until someone runs out of hp"""
-    while True:
-        rand_hit(unit1, unit2)
+    """
+    Takes 2 units as a parameters and they randomly hit each other
+    """
+    units = [unit1, unit2]
+    lucky, target = define_roles(units)
 
-        if not unit1.is_alive():
-            winner = unit2
-        if not unit2.is_alive():
-            winner = unit1
+    while target.is_alive():
+        lucky, target = define_roles(units)
 
-            print(winner.name, "Win this fight!!!")
-            break
+        print(lucky.name, "hit", target.name, )
+        target.get_damaged(lucky.damage)
+
+    print(lucky.name, "Win this fight!!!")
