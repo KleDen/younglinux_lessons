@@ -2,15 +2,19 @@ import random
 
 
 class Warrior:
-    def __init__(self, name):
+    def __init__(self, name, hp=100):
+        self.hp = hp
         self.name = name
-        self.hp = 100
 
     def is_alive(self):
         if self.hp > 0:
             return True
         else:
             return False
+
+    def det_damaged(self, damage):
+        self.hp -= damage
+        print(self.name, "take", damage, "damage, he's now at", self.hp, "hp")
 
 
 def rand_hit(unit1: Warrior, unit2: Warrior):
@@ -29,9 +33,9 @@ def battle(unit1: Warrior, unit2: Warrior):
     while True:
         rand_hit(unit1, unit2)
 
-        if unit1.is_alive() == False:
+        if not unit1.is_alive():
             print(unit2.name, "Win this fight!!!")
             break
-        if unit2.is_alive() == False:
+        if not unit2.is_alive():
             print(unit1.name, "Win this fight!!!")
             break
