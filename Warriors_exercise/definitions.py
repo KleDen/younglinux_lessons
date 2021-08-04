@@ -3,9 +3,12 @@ import random
 
 class Warrior:
     def __init__(self, name, hp=100, damage=20):
+        if hp < 0:
+            raise ValueError("Hp can't be negative!")
         self.damage = damage
-        self.hp = hp
         self.name = name
+        self.hp = hp
+
 
     def is_alive(self):
         return self.hp > 0

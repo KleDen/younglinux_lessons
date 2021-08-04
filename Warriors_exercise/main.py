@@ -1,8 +1,6 @@
 from definitions import Warrior, battle
 
-
-uter = Warrior("Uter", 100)
-artas = Warrior("Artas", 100)
-
+uter = Warrior("Uter")
+artas = Warrior("Artas")
 
 battle(uter, artas)
