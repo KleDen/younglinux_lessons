@@ -1,9 +1,8 @@
 import unittest
 
-from definitions import Warrior
+from definitions import Warrior, battle
 
 
-# Проверить, что воин мёртв и при отрицательном здоровье, и при нуле.
 class TestWarrior(unittest.TestCase):
 
     def test_create_unit(self):
@@ -26,22 +25,30 @@ class TestWarrior(unittest.TestCase):
         with self.assertRaises(ValueError):
             bob = Warrior("name", -9)
             bob = Warrior("name", 0)
-
     # you can not set hp < 0
 
     def test_is_dead(self):
         self.bob = Warrior("Bob", 100)
         self.mike = Warrior("Mike", 10)
-
+    # Create 2 units
         self.assertTrue(self.bob.is_alive)
         self.assertTrue(self.mike.is_alive)
-        # Now they are alive
+    # Now they are alive
         self.bob.get_damaged(100)
         self.mike.get_damaged(20)
-        # Hit
+    # Hit
         self.assertFalse(self.bob.is_alive())  # hp = 0
         self.assertFalse(self.mike.is_alive())  # hp = -10
-        # Now they Dead
+    # Now they Dead
+
+
+class TestBattle(unittest.TestCase):
+
+    def test_battle(self, bot1=Warrior("bot1"), bot2=Warrior("bot2")):
+        battle(bot1, bot2)
+        self.assertEqual((bot1.is_alive() * bot2.is_alive()), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
+
