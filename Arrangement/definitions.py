@@ -25,6 +25,7 @@ class Room:
         return round(new_square, 1)
 
     def wallpapers(self, width, length):
-        roll_S = width * length
-        rolls_of_wallpapers = self.get_square() / roll_S
-# Закончить метод
+        roll_area = width * length
+        rolls_of_wallpapers = self.workSurface() / roll_area
+
+        return round(rolls_of_wallpapers)
