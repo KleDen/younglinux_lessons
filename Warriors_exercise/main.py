@@ -4,3 +4,4 @@ uter = Warrior("Uter")
 artas = Warrior("Artas")
 
 battle(uter, artas)
+
