@@ -12,9 +12,9 @@ class TestWarrior(unittest.TestCase):
     def test_get_damaged(self):
         self.bob = Warrior("Bob")
         self.bob.get_damaged(10)
-        self.assertEqual(self.bob.hp, 90)
+        self.assertEqual(self.bob.get_hp(), 90)
         self.bob.get_damaged(90)
-        self.assertEqual(self.bob.hp, 0)
+        self.assertEqual(self.bob.get_hp(), 0)
 
     def test_negative_damage(self):
         self.bob = Warrior("Bob")

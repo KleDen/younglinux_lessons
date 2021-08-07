@@ -3,21 +3,23 @@ import random
 
 class Warrior:
     def __init__(self, name, hp=100, damage=20):
+        self.__hp = hp
         if hp < 0:
             raise ValueError("Hp can't be negative!")
-        self.damage = damage
+        self._damage = damage
         self.name = name
-        self.hp = hp
 
+    def get_hp(self):
+        return self.__hp
 
     def is_alive(self):
-        return self.hp > 0
+        return self.__hp > 0
 
     def get_damaged(self, damage: int):
         if damage < 0:
             raise ValueError("Damage can't be negative!")
-        self.hp -= damage
-        print(self.name, "take", damage, "damage, he's now at", self.hp, "hp")
+        self.__hp -= damage
+        print(self.name, "take", damage, "damage, he's now at", self.__hp, "hp")
 
 
 def define_roles(units: list) -> tuple:
@@ -40,6 +42,6 @@ def battle(unit1: Warrior, unit2: Warrior):
         lucky, target = define_roles(units)
 
         print(lucky.name, "hit", target.name, )
-        target.get_damaged(lucky.damage)
+        target.get_damaged(lucky._damage)
 
     print(lucky.name, "Win this fight!!!")
