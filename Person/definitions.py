@@ -10,6 +10,7 @@ class Person:
     def __del__(self):
         print("Goodbye mr.", self.surname, self.name)
 
+    @staticmethod
     def find_weakest(workers: list):
         weakest = workers[0]
         for worker in workers:
