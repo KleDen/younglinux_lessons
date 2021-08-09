@@ -8,6 +8,7 @@ def room_input():
 def win_door_input():
     width = float(input("Enter the width of non-adhesive element: "))
     length = float(input("Enter roll length non-adhesive element: "))
+    print("your object is ", width, "x", length)
     return width, length
 
 

@@ -11,6 +11,6 @@ for i in range(windoors):
     wd_wid, wd_len = win_door_input()
     room2.addWD(wd_wid, wd_len)
 
-
+print("area of the room is: ", room2.get_square())
 print("area of work surface is: ", room2.workSurface())
 print("You need", room2.wallpapers(wallpapers_width, wallpapers_length), "rolls of wallpaper to cover the room")
