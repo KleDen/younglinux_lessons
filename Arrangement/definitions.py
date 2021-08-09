@@ -1,3 +1,5 @@
+from math import ceil
+
 class WinDoor:
     def __init__(self, x, y):
         self.square = x * y
@@ -12,7 +14,7 @@ class Room:
 
     def get_square(self):
         square = 2 * self.height * (self.width + self.length)
-        print("Square area is:", square)
+        #print("Square area is:", square) # Wtf
         return square
 
     def addWD(self, w, h):
@@ -22,10 +24,11 @@ class Room:
         new_square = self.get_square()
         for i in self.wd:
             new_square -= i.square
+        #print()23rk survase
         return round(new_square, 1)
 
     def wallpapers(self, width, length):
         roll_area = width * length
         rolls_of_wallpapers = self.workSurface() / roll_area
-
-        return round(rolls_of_wallpapers)
+        print('smth')###
+        return ceil(rolls_of_wallpapers)

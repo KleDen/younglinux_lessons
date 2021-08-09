@@ -1,13 +1,17 @@
+from Arrangement.Room_io import room_input, wallpapers_input, win_door_input
 from definitions import Room
 
-r1 = Room(6, 2, 2.7)
+width, length, height = room_input()
+wallpapers_width, wallpapers_length = wallpapers_input()
+# ^ Getting parameters of whole room and wallpaper rolls
 
-r1.addWD(2, 2)
-r1.addWD(1, 1)
-r1.addWD(1, 2)
-r1.addWD(5, 1)
-r1.get_square()
+width_wd, length_wd = win_door_input()
 
-print(r1.workSurface())
-# ИНТЕРФЕЙС
-# ТЕСТЫ
+
+
+
+room2 = Room(width, length, height)
+
+print("area of work surface is: ", room2.workSurface())
+print(room2.wallpapers(wallpapers_width, wallpapers_length))
+# ^ Printing results
