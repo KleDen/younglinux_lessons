@@ -1,4 +1,4 @@
-def room_input():
+def room_input() -> [float, float, float]:
     width = float(input("Enter width of the room: "))
     length = float(input("Enter length of the room: "))
     height = float(input("Enter height of the room: "))
@@ -7,7 +7,7 @@ def room_input():
     return width, length, height
 
 
-def win_door_input():
+def win_door_input() -> [float, float]:
     width = float(input("Enter the width of non-adhesive element: "))
     length = float(input("Enter roll length non-adhesive element: "))
     if (width or length) <= 0:
@@ -16,7 +16,7 @@ def win_door_input():
     return width, length
 
 
-def wallpapers_input():
+def wallpapers_input() -> [float, float]:
     width = float(input("Enter the roll width: "))
     length = float(input("Enter roll length: "))
     if (width or length) <= 0:
