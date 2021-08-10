@@ -7,7 +7,7 @@ Lime = Person("Guy", "Family", 2)
 workers = [Salt, Tequila, Lime]
 
 weakest = definitions.Person.find_weakest(workers)
-print(weakest)
+
 workers.remove(weakest)
 
 for human in workers:
