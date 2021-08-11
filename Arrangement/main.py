@@ -6,8 +6,8 @@ wallpapers_width, wallpapers_length = wallpapers_input()
 # Getting parameters of whole room and wallpaper rolls
 room2 = Room(width, length, height)
 
-windoors = int(input("How many objects you will not cover with wallpapers? "))
-for i in range(windoors):
+win_doors = int(input("How many objects you will not cover with wallpapers? "))
+for i in range(win_doors):
     wd_wid, wd_len = win_door_input()
     room2.addWD(wd_wid, wd_len)
 
