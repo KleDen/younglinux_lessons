@@ -33,3 +33,6 @@ class Room:
         roll_area = width * length
         rolls_of_wallpapers = self.workSurface() / roll_area
         return ceil(rolls_of_wallpapers)
+
+    def __add__(self, other):
+        return self.get_square() + other.get_square()
