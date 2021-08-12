@@ -20,19 +20,22 @@ class Room:
         square = 2 * self.height * (self.width + self.length)
         return square
 
-    def addWD(self, w, h) -> None:
+    def addWD(self, w: float, h: float) -> None:
         self.wd.append(WinDoor(w, h))
 
     def workSurface(self) -> float:
         new_square = self.get_square()
         for i in self.wd:
             new_square -= i.get_square()
+        if new_square <= 0:
+            raise ValueError("Area can not be negative!")
         return round(new_square, 1)
 
-    def wallpapers(self, width, length) -> int:
+    def wallpapers(self, width: float, length: float) -> int:
         roll_area = width * length
         rolls_of_wallpapers = self.workSurface() / roll_area
         return ceil(rolls_of_wallpapers)
 
-    def __add__(self, other):
+    def __add__(self, other) -> float:
         return self.get_square() + other.get_square()
+    # return area of apartment walls

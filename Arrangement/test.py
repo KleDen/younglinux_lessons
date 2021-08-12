@@ -1,6 +1,5 @@
 import unittest
 
-from Room_io import room_input, wallpapers_input, win_door_input
 from definitions import Room
 
 
@@ -10,26 +9,30 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(room.wallpapers(width=1, length=10), 7)
 
 
-class TestInput(unittest.TestCase):
-    def test_room(self):
-        assert ValueError(room_input, 0)
-        assert ValueError(room_input, -9)
-        assert ValueError(room_input, 'foobar')
+class TestWorkSurfase(unittest.TestCase):
+    def test_positive(self):
+        room = Room(10, 10, 1)
+        room.addWD(1, 10)
+        self.assertEqual(room.workSurface(), 30.0)
 
-    def test_wallpaper(self):
-        assert ValueError(wallpapers_input, 0)
-        assert ValueError(wallpapers_input, -9)
-        assert ValueError(wallpapers_input, 'foobar')
-
-    def test_windoor(self):
-        assert ValueError(win_door_input, 0)
-        assert ValueError(win_door_input, -9)
-        assert ValueError(win_door_input, 'foobar')
+    def test_Errors(self):
+        room = Room(10, 10, 1)
+        room.addWD(4, 10)
+        self.assertRaises(ValueError, room.workSurface) # Raises error when area <= 0
 
 
-# actually yea. str must raise typeerror, but somebody cares for real?
+class TestWallpapers(unittest.TestCase):
+    def test_wallpapers(self):
+        room = Room(10, 10, 1)
 
-class Test_add(unittest.TestCase):
+        room.addWD(1, 10)
+        self.assertEqual(room.wallpapers(1, 2), 15)  # WorkSurface = 30
+
+        room.addWD(1, 10)
+        self.assertEqual(room.wallpapers(1, 3), 7)  # WorkSurface = 20
+
+
+class TestAdd(unittest.TestCase):
     def test_add(self):
         test1 = Room(10.0, 10.0, 1.0)
         test2 = Room(20.0, 20.0, 1.0)
