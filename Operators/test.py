@@ -1,5 +1,7 @@
 import unittest
+
 from Сlass_snow import Snow
+
 
 class TestSetterGetter(unittest.TestCase):
     def test_set_get(self):
@@ -19,20 +21,23 @@ class TestOverloadingOperators(unittest.TestCase):
         self.test_snow0 + 1
         self.assertEqual(self.test_snow0.get_snowflake(), 10)
 
-
     def test_sub(self):
         self.test_snow0 - self.test_snow1
         self.assertEqual(self.test_snow0.get_snowflake(), 1)
         self.test_snow0 - 1
         self.assertEqual(self.test_snow0.get_snowflake(), 0)
 
-
     def test_mul(self):
         self.test_snow0 * 3
         self.assertEqual(self.test_snow0.get_snowflake(), 15)
 
-    #def test_truediv
-# TODO TESTS
+    def test_truediv(self):
+        self.test_snow0 / 2
+        self.assertEqual(self.test_snow0.get_snowflake(), 3)
+
+    def test_call(self):
+        self.test_snow0(7)
+        self.assertEqual(self.test_snow0.get_snowflake(), 7)
 
 if __name__ == '__main__':
     unittest.main()
