@@ -14,3 +14,7 @@ class Triangle:
 
     def get_width(self) -> Number:
         return self.__width
+
+    def __add__(self, other: int):
+        self.__height += other
+        self.__width += other
