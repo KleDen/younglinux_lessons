@@ -6,7 +6,7 @@ class Warrior:
         self.__hp = hp
         if hp < 0:
             raise ValueError("Hp can't be negative!")
-        self._damage = damage
+        self.damage = damage
         self.name = name
 
     def get_hp(self):
@@ -42,6 +42,6 @@ def battle(unit1: Warrior, unit2: Warrior):
         lucky, target = define_roles(units)
 
         print(lucky.name, "hit", target.name, )
-        target.get_damaged(lucky._damage)
+        target.get_damaged(lucky.damage)
 
     print(lucky.name, "Win this fight!!!")
