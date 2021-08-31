@@ -24,7 +24,6 @@ else:
     Jaina.lvlup()
     print(f"Blue team win! Jaina reach Lvl {Jaina.lvl}!")
 
-red_team[0].follow(Rexar)
+print(red_team[0].follow(Rexar))
 print(Rexar.uid, red_team[0].uid)
-# print(f"Red team has {len(red_team)} solders")
-# print(f"Blue team has {len(blue_team)} solders")
+
