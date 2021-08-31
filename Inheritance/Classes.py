@@ -1,12 +1,11 @@
-import uuid
-
-
 class Unit:
-    """Class Unit has complete random uid and optionally takes argument - name of the team """
+    """Class Unit have ordered uid and optionally takes argument - name of the team """
+    counter = 0
 
     def __init__(self, team: str = ""):
-        self.uid = uuid.uuid4()
+        self.uid = Unit.counter
         self.team = team
+        Unit.counter += 1
 
 
 class Hero(Unit):
