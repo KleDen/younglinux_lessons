@@ -18,7 +18,7 @@ class TestWorkSurfase(unittest.TestCase):
     def test_Errors(self):
         room = Room(10, 10, 1)
         room.addWD(4, 10)
-        self.assertRaises(ValueError, room.workSurface) # Raises error when area <= 0
+        self.assertRaises(ValueError, room.workSurface)  # Raises error when area <= 0
 
 
 class TestWallpapers(unittest.TestCase):
