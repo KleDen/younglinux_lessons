@@ -31,7 +31,7 @@ class Room:
         self.wd.append(WinDoor(w, h))
 
     def workSurface(self) -> float:
-        """Method for calculating area without Win-Door elements"""
+        """Method for calculating __area without Win-Door elements"""
         new_square = self.get_square()
         for i in self.wd:
             new_square -= i.get_square()
@@ -46,5 +46,5 @@ class Room:
         return ceil(rolls_of_wallpapers)
 
     def __add__(self, other) -> float:
-        """By adding 2 Room objects, you'll get sum of they square area  """
+        """By adding 2 Room objects, you'll get sum of they square __area  """
         return self.get_square() + other.get_square()
